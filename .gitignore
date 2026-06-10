@@ -1,3 +1,11 @@
 node_modules
 package-lock.json
 dist
+
+# Jest
+coverage/
+
+# Playwright
+reports/
+playwright-report/
+test-results/

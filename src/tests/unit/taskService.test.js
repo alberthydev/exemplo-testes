@@ -1,4 +1,4 @@
-const taskService = require("../../src/services/taskService");
+const taskService = require("../../services/taskService");
 
 describe("Task Service", () => {
 
