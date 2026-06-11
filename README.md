@@ -46,6 +46,12 @@ Instale as dependências:
 npm install
 ```
 
+Para ambiente de produção (somente dependências de runtime):
+
+```bash
+npm run build
+```
+
 Instale os navegadores utilizados pelo Playwright:
 
 ```bash
@@ -65,7 +71,7 @@ npm start # ou npm run dev para desenvolvimento com hot reload
 A aplicação ficará disponível em:
 
 ```text
-http://localhost:3000
+http://localhost:3030
 ```
 
 ---
@@ -220,7 +226,7 @@ docker compose up --build
 A aplicação ficará disponível em:
 
 ```text
-http://localhost:3000
+http://localhost:3030
 ```
 
 Para interromper os containers:

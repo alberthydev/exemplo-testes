@@ -66,6 +66,8 @@ Edite o campo `scripts` para ficar assim:
 {
   "name": "todo-ci-cd",
   "scripts": {
+    "build": "npm ci --omit=dev",
+    "start": "node server.js",
     "dev": "nodemon server.js",
     "test": "jest",
     "test:unit": "jest tests/unit",
@@ -82,7 +84,7 @@ Edite o campo `scripts` para ficar assim:
 
 Observacao:
 
-- Este projeto usa `npm start` sem script explicito. O npm executa `node server.js` por padrao quando existe arquivo `server.js` na raiz.
+- O script `build` prepara o ambiente de producao instalando somente dependencias de runtime.
 
 ## 4) Criar servidor de entrada
 
@@ -440,11 +442,11 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci --omit=dev
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3030
 
 CMD ["npm", "start"]
 ```
@@ -456,7 +458,7 @@ services:
   app:
     build: .
     ports:
-      - "3000:3000"
+      - "3030:3030"
 ```
 
 ## 15) Rodar localmente
