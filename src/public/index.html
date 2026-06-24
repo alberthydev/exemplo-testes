@@ -9,7 +9,7 @@
 
 <h1>Lista de Tarefas</h1>
 
-<input id="title" placeholder="Nova tarefa">
+<input id="title" placeholder="Nova tarefa" onkeydown="if(event.key === 'Enter') adicionar()">
 
 <button onclick="adicionar()">
     Adicionar
@@ -30,6 +30,8 @@ async function carregar() {
 }
 
 async function adicionar() {
+    if (!title.value.trim()) return; 
+
     await fetch("/tasks", {
         method: "POST",
         headers: {
@@ -41,7 +43,6 @@ async function adicionar() {
     });
 
     title.value = "";
-
     carregar();
 }
 
